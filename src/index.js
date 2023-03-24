@@ -26,8 +26,28 @@ function audioRecorder() {
       });
   }
 
+  function stop() {
+    return new Promise((resolve, reject) => {
+      if (mediaRecorder && mediaRecorder.state === "recording") {
+        mediaRecorder.addEventListener("stop", () => {
+          mediaRecorder = null;
+          if (audioChunks.length) {
+            resolve();
+          } else {
+            reject(new Error("No audio data available"));
+          }
+        });
+
+        mediaRecorder.stop();
+      } else {
+        reject(new Error("MediaRecorder not available or not recording"));
+      }
+    });
+  }
+
   return {
     start,
+    stop,
   };
 }
 
