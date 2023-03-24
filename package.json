@@ -1,0 +1,9 @@
+{
+  "name": "audiorecorder",
+  "version": "1.0.0",
+  "description": "Audio Recorder",
+  "main": "index.js",
+  "repository": "https://github.com/PierreOliveira1/audiorecorder.git",
+  "author": "Pierre Oliveira",
+  "license": "MIT"
+}
