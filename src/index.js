@@ -45,9 +45,17 @@ function audioRecorder() {
     });
   }
 
+  function audio(type = 'audio/mp3') {
+    const audioBlob = new Blob(audioChunks, { type });
+    const audioUrl = URL.createObjectURL(audioBlob);
+
+    return audioUrl;
+  } 
+
   return {
     start,
     stop,
+    audio,
   };
 }
 
